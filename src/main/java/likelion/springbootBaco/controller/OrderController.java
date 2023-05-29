@@ -31,8 +31,8 @@ public class OrderController {
     }
 
     @PostMapping("order")
-    public String order(@RequestParam("memberId") Long memberId,
-                        @RequestParam("itemId") Long itemId, @RequestParam("count") int count) {
+    public String order(@RequestParam(value = "memberId") Long memberId,
+                        @RequestParam("itemId") Long itemId, @RequestParam(value = "count") int count) {
         orderService.createOrder(memberId, itemId, count);
         return "redirect:/orders";
     }
@@ -46,6 +46,7 @@ public class OrderController {
 
     @PostMapping("{orderId}/cancel")
     public String cancelOrder(@PathVariable("orderId") Long orderId) {
+
         orderService.cancelOrder(orderId);
         return "redirect:/orders";
     }

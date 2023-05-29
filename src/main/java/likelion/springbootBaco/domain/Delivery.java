@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,19 +26,18 @@ public class Delivery {
     @Enumerated(STRING)
     private DeliveryStatus deliveryStatus;
 
-    private String city;
-    private String state;
-    private String street;
-    private String zipcode;
+//    private String city;
+//    private String state;
+//    private String street;
+//    private String zipcode;
 
-    public static Delivery createDelivery(Order order, String city, String state, String street, String zipcode) {
+    private Address address;
+
+    public static Delivery createDelivery(Order order, Address address) {
         Delivery delivery = new Delivery();
         delivery.order = order;
         delivery.deliveryStatus = ESTABLISHED;
-        delivery.city = city;
-        delivery.state = state;
-        delivery.street = street;
-        delivery.zipcode = zipcode;
+        delivery.address = address;
         return delivery;
     }
 

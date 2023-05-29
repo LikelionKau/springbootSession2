@@ -48,10 +48,7 @@ public class Order {
         order.setMember(member);
         order.orderDate = LocalDateTime.now();
         order.orderStatus = OrderStatus.ORDERED;
-        order.delivery = Delivery.createDelivery(order, member.getAddress().getCity(),
-                member.getAddress().getState(),
-                member.getAddress().getStreet(),
-                member.getAddress().getZipcode());
+        order.delivery = Delivery.createDelivery(order, member.getAddress());
         for (OrderItem orderItem : orderItems) {
             order.orderItemList.add(orderItem);
             orderItem.setOrder(order);

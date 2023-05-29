@@ -1,6 +1,7 @@
 package likelion.springbootBaco.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class Member {
     @Id @GeneratedValue
     private Long id;
 
+    @NotEmpty
     private String name;
 
     @OneToMany(mappedBy = "member")
@@ -31,5 +33,15 @@ public class Member {
         member.name = name;
         member.address = address;
         return member;
+    }
+
+    public static Member createMemberNoAddress(String name) {
+        Member member = new Member();
+        member.name = name;
+        return member;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
