@@ -1,1 +1,3 @@
-# springbootSession
+# springbootSession2
+
+이 레포는 멋쟁이사자처럼 11기 스프링부트 세션 2,3을 위한 소스코드를 담고 있습니다.
